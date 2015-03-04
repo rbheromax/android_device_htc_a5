@@ -12,15 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit a5-specific vendor tree
-$(call inherit-product-if-exists, vendor/htc/a5/a5-vendor.mk)
+# Inherit a11-specific vendor tree
+$(call inherit-product-if-exists, vendor/htc/a11/a11-vendor.mk)
 
-# Inherit from a5
-$(call inherit-product, device/htc/a5/device.mk)
+# Inherit from a11
+$(call inherit-product, device/htc/a11/device.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_a5
-PRODUCT_DEVICE := a5
+PRODUCT_NAME := full_a11
+PRODUCT_DEVICE := a11
 PRODUCT_BRAND := HTC
 PRODUCT_MANUFACTURER := HTC
-PRODUCT_MODEL := a5
+PRODUCT_MODEL := a11

@@ -8,7 +8,7 @@ LOCAL_PATH := $(call my-dir)
 KERNEL_CONFIG := $(KERNEL_OUT)/.config
 A5_DTS_NAMES := msm8926
 
-A5_DTS_FILES = $(wildcard $(TOP)/$(TARGET_KERNEL_SOURCE)/arch/arm/boot/dts/msm8926-a5*.dts)
+A5_DTS_FILES = $(wildcard $(TOP)/$(TARGET_KERNEL_SOURCE)/arch/arm/boot/dts/msm8926-a11*.dts)
 A5_DTS_FILE = $(lastword $(subst /, ,$(1)))
 DTB_FILE = $(addprefix $(KERNEL_OUT)/arch/arm/boot/,$(patsubst %.dts,%.dtb,$(call A5_DTS_FILE,$(1))))
 ZIMG_FILE = $(addprefix $(KERNEL_OUT)/arch/arm/boot/,$(patsubst %.dts,%-zImage,$(call A5_DTS_FILE,$(1))))
@@ -16,7 +16,7 @@ KERNEL_ZIMG = $(KERNEL_OUT)/arch/arm/boot/zImage
 DTC = $(KERNEL_OUT)/scripts/dtc/dtc
 DTBTAGNAME := "htc,project-id = <"
 
-define append-a5-dtb
+define append-a11-dtb
 mkdir -p $(KERNEL_OUT)/arch/arm/boot;\
 $(foreach A5_DTS_NAME, $(A5_DTS_NAMES), \
    $(foreach d, $(A5_DTS_FILES), \
@@ -31,7 +31,7 @@ INSTALLED_DTIMAGE_TARGET := $(PRODUCT_OUT)/dt.img
 
 $(INSTALLED_DTIMAGE_TARGET): $(DTBTOOL) $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr $(INSTALLED_KERNEL_TARGET)
 	@echo -e ${CL_CYN}"Start DT image: $@"${CL_RST}
-	$(call append-a5-dtb)
+	$(call append-a11-dtb)
 	$(call pretty,"Target dt image: $(INSTALLED_DTIMAGE_TARGET)")
 	$(DTBTOOL) -o $(INSTALLED_DTIMAGE_TARGET) -s $(BOARD_KERNEL_PAGESIZE) -d $(DTBTAGNAME) -p $(KERNEL_OUT)/scripts/dtc/ $(KERNEL_OUT)/arch/arm/boot/
 	@echo -e ${CL_CYN}"Made DT image: $@"${CL_RST}
