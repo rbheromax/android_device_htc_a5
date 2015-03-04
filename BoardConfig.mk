@@ -20,7 +20,7 @@
 # definition file).
 #
 
-TARGET_OTA_ASSERT_DEVICE := a5,a5tl,a5dug,a5dwg,a5chl,a5ul
+TARGET_OTA_ASSERT_DEVICE := a11,a11chl,a11ul
 
 BOARD_VENDOR := htc
 
@@ -47,8 +47,8 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02008000 --tags_offset 0x01e00000
-BOARD_CUSTOM_BOOTIMG_MK := device/htc/a5/mkbootimg.mk
-TARGET_KERNEL_CONFIG := cm_a5_defconfig
+BOARD_CUSTOM_BOOTIMG_MK := device/htc/a11/mkbootimg.mk
+TARGET_KERNEL_CONFIG := cm_a11_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/msm8974
 
 # QCOM hardware
@@ -66,7 +66,7 @@ AUDIO_FEATURE_ENABLED_FM := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/a5/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/a11/bluetooth
 
 # Camera
 COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{"htc.camera.sensor.", AID_CAMERA, 0}, {"camera.4k2k.", AID_MEDIA, 0}, {"persist.camera.", AID_MEDIA, 0},'
@@ -83,7 +83,7 @@ TARGET_USES_ION := true
 TARGET_USES_C2D_COMPOSITION := true
 USE_OPENGL_RENDERER := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-BOARD_EGL_CFG := device/htc/a5/configs/egl.cfg
+BOARD_EGL_CFG := device/htc/a11/configs/egl.cfg
 
 # Includes
 TARGET_SPECIFIC_HEADER_PATH := device/htc/a5/include
@@ -103,7 +103,7 @@ TARGET_POWERHAL_VARIANT := qcom
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
-BOARD_RIL_CLASS := ../../../device/htc/a5/ril/
+BOARD_RIL_CLASS := ../../../device/htc/a11/ril/
 
 # RPC
 TARGET_NO_RPC := true
@@ -139,7 +139,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/htc/a5/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/htc/a11/rootdir/etc/fstab.qcom
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -174,18 +174,18 @@ BOARD_SEPOLICY_UNION += \
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_a5
-TARGET_LIBINIT_DEFINES_FILE := device/htc/a5/init/init_a5.c
+TARGET_INIT_VENDOR_LIB := libinit_a11
+TARGET_LIBINIT_DEFINES_FILE := device/htc/a11/init/init_a11.c
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/htc/a5/releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/htc/a11/releasetools
 
 # Webkit
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
 # Hardware
-BOARD_HARDWARE_CLASS := device/htc/a5/cmhw
+BOARD_HARDWARE_CLASS := device/htc/a11/cmhw
 
 # inherit from the proprietary version
--include vendor/htc/a5/BoardConfigVendor.mk
+-include vendor/htc/a11/BoardConfigVendor.mk
